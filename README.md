@@ -84,7 +84,7 @@ requirements.txt         - Python dependencies
 
 ```bash
 # Clone or download the repository
-git clone https://github.com/enkiluv/scl-experiment.git
+git clone https://github.com/enkiluv/scl-core-experiment.git
 cd scl-experiment
 
 # Or if using the standalone files:
