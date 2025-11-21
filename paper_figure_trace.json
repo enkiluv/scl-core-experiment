@@ -1,0 +1,83 @@
+{
+  "task": "Check San Francisco, Miami, and Atlanta weather; apply branching rule",
+  "policies": [
+    "must_cite_stored_evidence",
+    "no_final_answer_without_control_pass",
+    "single_final_action"
+  ],
+  "log": [
+    {
+      "loop": "init",
+      "module": "Retrieval",
+      "res": {
+        "need": [
+          "SF weather",
+          "Miami weather",
+          "Atlanta weather"
+        ],
+        "threshold_hot_F": 55
+      }
+    },
+    {
+      "loop": "San Francisco",
+      "phases": [
+        "Cognition",
+        "Control",
+        "Action",
+        "Memory"
+      ],
+      "res": {
+        "city": "San Francisco",
+        "temp_F": 53,
+        "ref": "wx-sanfrancisco-001"
+      }
+    },
+    {
+      "loop": "Miami",
+      "phases": [
+        "Cognition",
+        "Control",
+        "Action",
+        "Memory"
+      ],
+      "res": {
+        "city": "Miami",
+        "temp_F": 73,
+        "ref": "wx-miami-001"
+      }
+    },
+    {
+      "loop": "Atlanta",
+      "phases": [
+        "Cognition",
+        "Control",
+        "Action",
+        "Memory"
+      ],
+      "res": {
+        "city": "Atlanta",
+        "temp_F": 79,
+        "ref": "wx-atlanta-001"
+      }
+    },
+    {
+      "loop": "integrate",
+      "phases": [
+        "Cognition",
+        "Control",
+        "Action",
+        "Memory"
+      ],
+      "decision": "{'status': 'sent', 'recipient': 'test-scl@test.com', 'subject': 'Travel Plan Confirmed: Miami', 'timestamp': '2024-01-15T10:30:00Z', 'message_id': 'msg-963'}",
+      "evidence": [
+        "api:wx-001",
+        "api:wx-002",
+        "api:wx-003"
+      ]
+    }
+  ],
+  "summary": {
+    "final_action": "travel_decision_executed",
+    "policy_violations": 0
+  }
+}
